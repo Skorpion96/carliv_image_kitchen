@@ -188,6 +188,7 @@ if [ -e "$filename"/ramdisk/sbin/recovery ];
 		echo "2" > "$filename"/mtk;
 	fi;
 fi;
+xdg-open $filename
 ###########################################################
-echo -e "Done! Your image is unpacked in$y $filename$c folder.";
+echo -e "Done! Your image is unpacked in$y $filename$c folder you can now edit it.";
 echo " ";
