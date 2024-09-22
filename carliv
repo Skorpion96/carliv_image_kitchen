@@ -82,6 +82,21 @@ pause;
 imgmenu;
 }
 
+open_input()
+{
+xdg-open "/$PWD/input"
+clear;
+echo -e "copy the image to unpack inside the input folder and press ENTER" && pause;
+main;
+}
+
+open_output()
+{
+xdg-open "/$PWD/output"
+clear;
+main;
+}
+
 img_info()
 {
 clear;
@@ -130,6 +145,17 @@ if [ -d "output" ];
 	then
 	rm -rf "output";
 	echo -e "\n$y Done! Your output directory is deleted.$c";
+	sleep 2;
+fi;
+main;	
+}
+
+clean_input()
+{
+if [ -d "input" ];
+	then
+	rm -rf "input" && mkdir input;
+	echo -e "\n$y Done! Your input directory is cleaned.$c";
 	sleep 2;
 fi;
 main;	
@@ -316,16 +342,25 @@ echo -e "][$g C.   CLEAR FOLDER$c      ][";
 echo "][************************][";
 echo -e "][$m O.   CLEAR OUTPUT$c      ][";
 echo "][************************][";
+echo -e "][$m L.   CLEAR INPUT$c       ][";
+echo "][************************][";
+echo -e "][$m A.   OPEN INPUT$c        ][";
+echo "][************************][";
+echo -e "][$m B.   OPEN OUTPUT$c       ][";
+echo "][************************][";
 echo "][ P.   SEE INSTRUCTIONS  ][";
 echo "][************************][";
 echo -e "][$r E.   EXIT$c              ][";
 echo "][************************][";
 echo " ";
-printf '%b' "Type your option [ I - C - O - P - E ]: ";
+printf '%b' "Type your option [ I - C - O - L - A - B - P - E ]: ";
 read -n1 env;
 case $env in
+ a|A) open_input;;
+ b|B) open_output;;
  i|I) setimg;;
  c|C) clean_all;;
+ l|L) clean_input;;
  o|O) clean_output;;
  p|P) cat "$scripts"/Instructions.txt; pause; continue;;
  e|E) quit;;
