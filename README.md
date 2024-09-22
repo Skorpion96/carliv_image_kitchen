@@ -5,3 +5,5 @@ I was tired of going to look for Carliv folder on my pc and so i edited it to wo
 To use this fork you have to clone the repo, put the cloned folder on your home directory or where you like, then edit the symlink which is in reality a script to run carliv accordingly to the path where you will put carliv.
 
 In case you will put it on your home directory as on the symlink script replace $USER with your username and rename carliv folder accordingly. That's all.
+
+I added some functions as well to open input and output directories since now it's hidden, and to clean them, it felt incomplete without.
